@@ -12,12 +12,14 @@ document.getElementById("addText").addEventListener("click", function(){
 }
 );
 
+document.getElementById("changeSizeText").innerHTML = "Add " + document.getElementById("hSize").value + " Tag";
+
+document.getElementById("hSize").addEventListener("change", function(){
+    const size = this.value;
+    document.getElementById("changeSizeText").innerHTML = "Add " + size + " Tag";
+})
+
 document.getElementById("addHeader").addEventListener("click", function(){
-
-    const size = document.getElementById("hSize").value;
-
-    document.getElementById
-    
     const text = document.createTextNode(document.getElementById("addHTag").value);
     const h = document.createElement(size);
     h.appendChild(text);
