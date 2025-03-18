@@ -7,15 +7,34 @@
     <link rel="stylesheet" href="css/htmlgen.css">
 </head>
 <body>
-    Welcom to the HTML GENERATOR
+    <h1>welcome to html generator</h1>
+    <div class="colorChangeContainer">
+        <h3>bg color</h3>
+        
+        <input type="color" id="bgColor">
+
+        <button onclick="ColorChange()">Change BG</button>
+
+    </div>
+
     <div>
-        <div class="colorChange">
-            <input type="color" id="bgColor">
-            <input type="color" id="textColor">
-        </div>
+        <input type="color" id="textColor">
+        <input type="text" id="addPTag">
+        <button id="addText">Add P Tag</button>
+    </div>
 
-        <button onclick="ColorChange()">Click</button>
+    <div>
+        <input type="color" id="headerColor">
+        <input type="text" id="addHTag">
 
+        <select id="hSize">
+            <option value="h1">h1</p>
+            <option value="h2">h2</p>
+            <option value="h3">h3</p>
+            <option value="h4">h4</p>
+        </select>
+
+        <button id="addHeader"><label id="changeSizeText">Add H1 Label</label></button>
     </div>
 
     <script src="static/htmlgen.js"></script>
