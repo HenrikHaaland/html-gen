@@ -20,6 +20,7 @@ document.getElementById("hSize").addEventListener("change", function(){
 })
 
 document.getElementById("addHeader").addEventListener("click", function(){
+    const size = document.getElementById("hSize").value;
     const text = document.createTextNode(document.getElementById("addHTag").value);
     const h = document.createElement(size);
     h.appendChild(text);
@@ -28,4 +29,6 @@ document.getElementById("addHeader").addEventListener("click", function(){
     h.style.webkitTextFillColor = document.getElementById("headerColor").value;
 }
 );
+
+
 
