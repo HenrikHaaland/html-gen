@@ -7,35 +7,66 @@
     <link rel="stylesheet" href="css/htmlgen.css">
 </head>
 <body>
-    <h1>welcome to html generator</h1>
-    <div class="colorChangeContainer">
-        <h3>bg color</h3>
-        
-        <input type="color" id="bgColor">
+    <div class="darkDiv"></div>
+    <h1 class="htmlGen">HTML Gen</h1>
+    <div class="commandContainer">
 
-        <button onclick="ColorChange()">Change BG</button>
+        <div class="buttonContainer">
+            
+            <input type="color" id="bgColor">
+
+            <button onclick="ColorChange()">Change BG</button>
+
+        </div>
+
+        <mark class="commandBreaker"><br></mark>
+
+        <div class="buttonContainer">
+            <input type="color" id="textColor">
+            <input type="text" id="addPTag">
+            <button id="addText">Add P Tag</button>
+            <!--make toggleble with li tag-->
+        </div>
+
+        <mark class="commandBreaker"><br></mark>
+
+        <div class="buttonContainer">
+            <input type="color" id="headerColor">
+            <input type="text" id="addHTag">
+
+            <select id="hSize">
+                <option value="h1">h1</p>
+                <option value="h2">h2</p>
+                <option value="h3">h3</p>
+                <option value="h4">h4</p>
+            </select>
+
+            <button id="addHeader"><span id="changeSizeText">Add h1 Tag</span></button>
+        </div>
+
+        <mark class="commandBreaker"><br></mark>
+
+        <div class="buttonContainer">
+            <div class="buttonRow">
+                <button id="clearLocalStorage">Clear Local Storage</button>
+                <button id="insertImage">Insert Image</button> <!--coming soon-->
+            </div>
+            <div class="buttonRow">
+                <button id="clearPage">Clear Page</button>
+                <button>Save Page</button> <!--coming soon-->
+            </div>
+            <div class="buttonRow">
+                <button>fullscreen</button> <!--coming soon-->
+            </div>
+        </div>
 
     </div>
 
-    <div>
-        <input type="color" id="textColor">
-        <input type="text" id="addPTag">
-        <button id="addText">Add P Tag</button>
+
+    <div class="container" id="localstorageContainer">
+
     </div>
-
-    <div>
-        <input type="color" id="headerColor">
-        <input type="text" id="addHTag">
-
-        <select id="hSize">
-            <option value="h1">h1</p>
-            <option value="h2">h2</p>
-            <option value="h3">h3</p>
-            <option value="h4">h4</p>
-        </select>
-
-        <button id="addHeader"><span id="changeSizeText">Add h1 Tag</span></button>
-    </div>
+    
 
     <script src="static/htmlgen.js"></script>
 </body>
