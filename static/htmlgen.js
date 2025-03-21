@@ -1,7 +1,7 @@
 //localstorage to save the html of the page
-localstorageContainer.innerHTML = localStorage.getItem("localstorageContainer") || "";
-document.body.style.backgroundColor = localStorage.getItem("bgColor") || "#ffffff";
-document.getElementById("localstorageContainer").innerHTML = localStorage.getItem("localstorageContainer") || "";
+localstorageContainer.innerHTML = localStorage.getItem("localstorageContainer") || ""; //local storage for text
+document.body.style.backgroundColor = localStorage.getItem("bgColor") || "#ffffff"; //local storage for background color
+document.getElementById("localstorageContainer").innerHTML = localStorage.getItem("localstorageContainer") || ""; //local storage for images
 
 //function for clearing Local Storage if needed
 document.getElementById("clearLocalStorage").addEventListener("click", function(){
@@ -17,25 +17,34 @@ document.getElementById("clearPage").addEventListener("click", function(){
 
 //function to change the background color of the page
 function ColorChange() {    
-    const color = document.getElementById("bgColor").value;
-    document.body.style.backgroundColor = color;
-    localStorage.setItem("bgColor", color);
+    const color = document.getElementById("bgColor").value; //retrives the id "bgColor" and turns it into a const
+    document.body.style.backgroundColor = color; //assigns a DOM element to the const
+
+    localStorage.setItem("bgColor", color); //local storage for background color
 }
 
 //function to add a p tag to the page and to change the text color of the p tag
 document.getElementById("addText").addEventListener("click", function(){
-    var p = document.createElement("p");
-    var text = document.createTextNode(document.getElementById("addPTag").value);
-    p.appendChild(text);
-    document.getElementById("localstorageContainer").appendChild(p);
+    const tagSwitch = document.getElementById("tagSwitch");
+    const li = document.createElement("li")
+    const p = document.createElement("p");
+    const text = document.createTextNode(document.getElementById("addPTag").value); //Makes a text node from the input value and saves it in the const text
+    p, li.appendChild(text); //adds the "text" node inside the "p" element
+    document.getElementById("localstorageContainer").appendChild(p, li); //appends the p tag inside the element with ID localStorageContainer
 
-    p.style.webkitTextFillColor = document.getElementById("textColor").value;
+    p, li.style.webkitTextFillColor = document.getElementById("textColor").value; //Sets the text fill color 
 
+    //local storage for p tags
     localstorageContainer.appendChild(p);
     localStorage.setItem("localstorageContainer", localstorageContainer.innerHTML);
 
 }
 );
+
+document.getElementById("tagSwitch").addEventListener("change", function(){
+    const tagSwitch = this.value
+    document.getElementById("changeTagText").innerHTML = "Add" + tagSwitch + "Tag"
+})
 
 //function to change the button text of the h tag depending on what size is selected
 document.getElementById("hSize").addEventListener("change", function(){

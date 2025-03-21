@@ -80,3 +80,11 @@ body {
     bottom: 21.25%;
     right: 45%;
 }
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+    font-family: 'Courier New', Courier, monospace;
+}
