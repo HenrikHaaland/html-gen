@@ -7,8 +7,9 @@ body {
     font-family: 'Courier New', Courier, monospace;
     border-bottom: 2px solid #c68181;
     padding-left: 1%;
-    background-color: #d3d3d3;
+    background-image: linear-gradient(70deg, #000000 300px, #11ff00 400px, #d3d3d3 400px, #d3d3d3 410px, #11ff00 410px, #11ff00 420px, #d3d3d3 420px, #d3d3d3 430px, #11ff00 430px, #11ff00 440px, #d3d3d3 440px, #d3d3d3 450px, #11ff00 450px, #11ff00 460px, #d3d3d3 460px);
     margin: 0%;
+    color: whitesmoke;
 }
 
 .commandContainer {
