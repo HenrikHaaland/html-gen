@@ -17,55 +17,60 @@ document.getElementById("clearPage").addEventListener("click", function(){
 
 //function to change the background color of the page
 function ColorChange() {    
-    const color = document.getElementById("bgColor").value; //retrives the id "bgColor" and turns it into a const
+    const color = document.getElementById("bgColor").value; //retrieves the id "bgColor" and turns it into a const
     document.body.style.backgroundColor = color; //assigns a DOM element to the const
 
     localStorage.setItem("bgColor", color); //local storage for background color
 }
 
-//function to add a p tag to the page and to change the text color of the p tag
+//function to add a p tag and li tag to the page and to change the text color of the p and li tag
+document.getElementById("switchTag").addEventListener("change", function(){ //retrieves the id for the select menu
+    const tag = this.value; //retrieves the selected tag (either p tag or li tag)
+    document.getElementById("addText").innerHTML = "Add " + tag + " Tag"; //updates the button from "add p tag" to "add li tag" and back
+});
+
 document.getElementById("addText").addEventListener("click", function(){
-    const tagSwitch = document.getElementById("tagSwitch");
-    const li = document.createElement("li")
-    const p = document.createElement("p");
-    const text = document.createTextNode(document.getElementById("addPTag").value); //Makes a text node from the input value and saves it in the const text
-    p, li.appendChild(text); //adds the "text" node inside the "p" element
-    document.getElementById("localstorageContainer").appendChild(p, li); //appends the p tag inside the element with ID localStorageContainer
+    const tag = document.getElementById("switchTag").value; //retrieves the selected value (either p tag or li tag)
+    const text = document.createTextNode(document.getElementById("addTag").value); //creates a textnode with the content the user typed in
 
-    p, li.style.webkitTextFillColor = document.getElementById("textColor").value; //Sets the text fill color 
+    if (tag === "li") { //if user chose li, this will happen
+        const ul = document.createElement("ul"); //creates the ul element that the li tag needs to be put inside of and assigns it to the const "ul"
+        const li = document.createElement("li"); //creates the li element and assigns it to the const "li"
+        li.appendChild(text); //adds the text(that the user wrote) inside the li tag
+        li.style.webkitTextFillColor = document.getElementById("textColor").value; //applies the selected color to the li element
+        ul.appendChild(li); //adds the li element inside of a ul element
+        document.getElementById("localstorageContainer").appendChild(ul); //adds the ul element inside of the id/div "localStorageContainer"
+    } else { //if user didn't chose li(chose p instead), this will happen
+        const p = document.createElement("p"); //creates the p element and assigns it to the const "p"
+        p.appendChild(text); //adds the text(that the user wrote) inside the p tag
+        p.style.webkitTextFillColor = document.getElementById("textColor").value; //applies the selected color to the p element
+        document.getElementById("localstorageContainer").appendChild(p); //adds the p element inside of the id/div "localStorageContainer"
+    }
 
-    //local storage for p tags
-    localstorageContainer.appendChild(p);
-    localStorage.setItem("localstorageContainer", localstorageContainer.innerHTML);
+    localStorage.setItem("localstorageContainer", document.getElementById("localstorageContainer").innerHTML); //saves the html inside of "localStorageContainer"
+});
 
-}
-);
 
-document.getElementById("tagSwitch").addEventListener("change", function(){
-    const tagSwitch = this.value
-    document.getElementById("changeTagText").innerHTML = "Add" + tagSwitch + "Tag"
-})
 
 //function to change the button text of the h tag depending on what size is selected
-document.getElementById("hSize").addEventListener("change", function(){
-    const size = this.value;
-    document.getElementById("changeSizeText").innerHTML = "Add " + size + " Tag";
-
+document.getElementById("hSize").addEventListener("change", function(){ //retrieves the id for the select menu
+    const size = this.value; //retrieves the selected size from the select menu
+    document.getElementById("changeSizeText").innerHTML = "Add " + size + " Tag"; //updates the button depending on which h tag you chose
 })
 
 //function to add a header to the page
 document.getElementById("addHeader").addEventListener("click", function(){
     
-    const size = document.getElementById("hSize").value;
-    const text = document.createTextNode(document.getElementById("addHTag").value);
-    const h = document.createElement(size);
-    h.appendChild(text);
-    document.getElementById("localstorageContainer").appendChild(h);
+    const size = document.getElementById("hSize").value; //retrieves the diffrent size to the h tag and assigns the const "size" to it
+    const text = document.createTextNode(document.getElementById("addHTag").value); //creates a textnode with the content the user typed in
+    const h = document.createElement(size); //creates the size to the respected h element
+    h.appendChild(text); //adds the text(that the user write) into the h element
+    document.getElementById("localstorageContainer").appendChild(h); //adds the h element inside of the id/div "localStorageContainer"
 
-    h.style.webkitTextFillColor = document.getElementById("headerColor").value;
+    h.style.webkitTextFillColor = document.getElementById("headerColor").value; //applies the selected color to the h element
 
-    localstorageContainer.appendChild(h);
-    localStorage.setItem("localstorageContainer", localstorageContainer.innerHTML);
+    localstorageContainer.appendChild(h); //adds the h element inside of the id/div "localStorageContainer"
+    localStorage.setItem("localstorageContainer", localstorageContainer.innerHTML); //saves the html inside of "localStorageContainer"
 }
 );
 

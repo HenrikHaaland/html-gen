@@ -25,15 +25,13 @@
 
         <div class="buttonContainer">
             <input type="color" id="textColor">
-            <input type="text" id="addPTag">
+            <input type="text" id="addTag">
+            <button id="addText">Add p Tag</button>
 
-            <select id="tagSwitch">
-                <option value="p">p tag</option>
-                <option value="li">li tag</option>
+            <select id="switchTag">
+                <option value="p">p Tag</option>
+                <option value="li">li Tag</option>
             </select>
-            
-            <button id="addText"><span id="changeTagText">Add P Tag</span></button>
-            <!--make toggleable with li tag-->
         </div>
 
         <mark class="commandBreaker"><br></mark>
@@ -59,13 +57,7 @@
                 <button id="clearLocalStorage">Clear Local Storage</button>
                 <button onclick="imageInsert()">Insert Image</button> <!--coming soon-->
             </div>
-            <div class="buttonRow">
-                <button id="clearPage">Clear Page</button>
-                <button>Save Page</button> <!--coming soon-->
-            </div>
-            <div class="buttonRow">
-                <button>fullscreen</button> <!--coming soon-->
-            </div>
+            
         </div>
 
     </div>
